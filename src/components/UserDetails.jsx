@@ -1,19 +1,20 @@
 import { useNavigate } from "react-router-dom";
 
-const UserDetails = () => {
+const UserDetails = ({ state }) => {
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate("/");
+  }
 
-    let navigate = useNavigate();
-    function handleClick() {
-        navigate("/");
-    }
+  const { details } = state;
+  console.log(details);
 
-    return (
-        <div>
-            <h1>User Details Page</h1>
-            <button onClick={handleClick}>Go Back</button>
-        </div>
-    )
+  return (
+    <div>
+      <h2>User Details Page</h2>
+      <button onClick={handleClick}>Go Back</button>
+    </div>
+  );
+};
 
-}
-
-export default UserDetails
+export default UserDetails;
